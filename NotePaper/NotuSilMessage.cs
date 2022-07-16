@@ -20,6 +20,8 @@ namespace NotePaper
         public List<int> mediaTableId = new List<int>();
         public string headerText = "";
         public string messageText = "";
+        public string deleteButtonText = "";
+        public string cancelButtonText = "";
         public NotuSilMessage()
         {
             InitializeComponent();
@@ -43,8 +45,7 @@ namespace NotePaper
                     mediaDelete.ExecuteNonQuery();
                 }
             }
-
-
+            sqlConnection.Close();
             btn.PerformClick();
             guna2ControlBox1.PerformClick();
         }
@@ -52,6 +53,12 @@ namespace NotePaper
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             guna2ControlBox1.PerformClick();
+        }
+
+        private void NotuSilMessage_Load(object sender, EventArgs e)
+        {
+            guna2Button1.Text = deleteButtonText;
+            guna2Button2.Text = cancelButtonText;
         }
     }
 }

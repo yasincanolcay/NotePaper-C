@@ -31,6 +31,11 @@ namespace NotePaper
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.guna2HtmlLabel26 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2TileButton4 = new Guna.UI2.WinForms.Guna2TileButton();
+            this.guna2HtmlLabel23 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel24 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.guna2HtmlLabel22 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -71,14 +76,9 @@ namespace NotePaper
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2ToggleSwitch1 = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.startLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2TileButton4 = new Guna.UI2.WinForms.Guna2TileButton();
-            this.guna2HtmlLabel23 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel24 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel25 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel26 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2ProgressIndicator1 = new Guna.UI2.WinForms.Guna2ProgressIndicator();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,6 +137,65 @@ namespace NotePaper
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(723, 326);
             this.panel1.TabIndex = 0;
+            // 
+            // guna2HtmlLabel26
+            // 
+            this.guna2HtmlLabel26.AutoSize = false;
+            this.guna2HtmlLabel26.BackColor = System.Drawing.Color.DodgerBlue;
+            this.guna2HtmlLabel26.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.guna2HtmlLabel26.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel26.Location = new System.Drawing.Point(28, 1124);
+            this.guna2HtmlLabel26.Name = "guna2HtmlLabel26";
+            this.guna2HtmlLabel26.Size = new System.Drawing.Size(15, 15);
+            this.guna2HtmlLabel26.TabIndex = 97;
+            this.guna2HtmlLabel26.Text = "!";
+            this.guna2HtmlLabel26.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2TileButton4
+            // 
+            this.guna2TileButton4.BorderRadius = 15;
+            this.guna2TileButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2TileButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2TileButton4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2TileButton4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2TileButton4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TileButton4.ForeColor = System.Drawing.Color.White;
+            this.guna2TileButton4.Location = new System.Drawing.Point(25, 1149);
+            this.guna2TileButton4.Name = "guna2TileButton4";
+            this.guna2TileButton4.Size = new System.Drawing.Size(140, 36);
+            this.guna2TileButton4.TabIndex = 94;
+            this.guna2TileButton4.Text = "Uygula";
+            this.guna2TileButton4.Click += new System.EventHandler(this.guna2TileButton4_Click);
+            // 
+            // guna2HtmlLabel23
+            // 
+            this.guna2HtmlLabel23.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel23.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.guna2HtmlLabel23.ForeColor = System.Drawing.Color.Silver;
+            this.guna2HtmlLabel23.Location = new System.Drawing.Point(25, 1100);
+            this.guna2HtmlLabel23.Name = "guna2HtmlLabel23";
+            this.guna2HtmlLabel23.Size = new System.Drawing.Size(425, 21);
+            this.guna2HtmlLabel23.TabIndex = 93;
+            this.guna2HtmlLabel23.Text = "Yeniden başlatma gerekmeden, ayarların tümünü uygular";
+            // 
+            // guna2HtmlLabel24
+            // 
+            this.guna2HtmlLabel24.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel24.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.guna2HtmlLabel24.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel24.Location = new System.Drawing.Point(25, 1079);
+            this.guna2HtmlLabel24.Name = "guna2HtmlLabel24";
+            this.guna2HtmlLabel24.Size = new System.Drawing.Size(122, 22);
+            this.guna2HtmlLabel24.TabIndex = 92;
+            this.guna2HtmlLabel24.Text = "Şimdi Uygula";
+            // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(70)))), ((int)(((byte)(140)))));
+            this.guna2Separator1.Location = new System.Drawing.Point(14, 46);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(34, 10);
+            this.guna2Separator1.TabIndex = 91;
             // 
             // guna2HtmlLabel22
             // 
@@ -284,6 +343,7 @@ namespace NotePaper
             this.guna2TileButton3.Size = new System.Drawing.Size(140, 36);
             this.guna2TileButton3.TabIndex = 79;
             this.guna2TileButton3.Text = "Sıfırla";
+            this.guna2TileButton3.Click += new System.EventHandler(this.guna2TileButton3_Click);
             // 
             // guna2HtmlLabel18
             // 
@@ -321,6 +381,7 @@ namespace NotePaper
             this.guna2TileButton2.Size = new System.Drawing.Size(140, 36);
             this.guna2TileButton2.TabIndex = 76;
             this.guna2TileButton2.Text = "Temizle";
+            this.guna2TileButton2.Click += new System.EventHandler(this.guna2TileButton2_Click);
             // 
             // guna2HtmlLabel16
             // 
@@ -358,6 +419,7 @@ namespace NotePaper
             this.guna2TileButton1.Size = new System.Drawing.Size(140, 36);
             this.guna2TileButton1.TabIndex = 73;
             this.guna2TileButton1.Text = "Temizle";
+            this.guna2TileButton1.Click += new System.EventHandler(this.guna2TileButton1_Click);
             // 
             // guna2HtmlLabel14
             // 
@@ -734,44 +796,6 @@ namespace NotePaper
             this.startLabel.TabIndex = 50;
             this.startLabel.Text = "Başlangıçta Çalıştır";
             // 
-            // guna2TileButton4
-            // 
-            this.guna2TileButton4.BorderRadius = 15;
-            this.guna2TileButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2TileButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2TileButton4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2TileButton4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2TileButton4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TileButton4.ForeColor = System.Drawing.Color.White;
-            this.guna2TileButton4.Location = new System.Drawing.Point(25, 1149);
-            this.guna2TileButton4.Name = "guna2TileButton4";
-            this.guna2TileButton4.Size = new System.Drawing.Size(140, 36);
-            this.guna2TileButton4.TabIndex = 94;
-            this.guna2TileButton4.Text = "Uygula";
-            this.guna2TileButton4.Click += new System.EventHandler(this.guna2TileButton4_Click);
-            // 
-            // guna2HtmlLabel23
-            // 
-            this.guna2HtmlLabel23.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel23.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2HtmlLabel23.ForeColor = System.Drawing.Color.Silver;
-            this.guna2HtmlLabel23.Location = new System.Drawing.Point(25, 1100);
-            this.guna2HtmlLabel23.Name = "guna2HtmlLabel23";
-            this.guna2HtmlLabel23.Size = new System.Drawing.Size(425, 21);
-            this.guna2HtmlLabel23.TabIndex = 93;
-            this.guna2HtmlLabel23.Text = "Yeniden başlatma gerekmeden, ayarların tümünü uygular";
-            // 
-            // guna2HtmlLabel24
-            // 
-            this.guna2HtmlLabel24.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel24.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2HtmlLabel24.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel24.Location = new System.Drawing.Point(25, 1079);
-            this.guna2HtmlLabel24.Name = "guna2HtmlLabel24";
-            this.guna2HtmlLabel24.Size = new System.Drawing.Size(122, 22);
-            this.guna2HtmlLabel24.TabIndex = 92;
-            this.guna2HtmlLabel24.Text = "Şimdi Uygula";
-            // 
             // guna2HtmlLabel25
             // 
             this.guna2HtmlLabel25.BackColor = System.Drawing.Color.Transparent;
@@ -782,19 +806,6 @@ namespace NotePaper
             this.guna2HtmlLabel25.Size = new System.Drawing.Size(150, 21);
             this.guna2HtmlLabel25.TabIndex = 95;
             this.guna2HtmlLabel25.Text = "Giriş sayfasına gider";
-            // 
-            // guna2HtmlLabel26
-            // 
-            this.guna2HtmlLabel26.AutoSize = false;
-            this.guna2HtmlLabel26.BackColor = System.Drawing.Color.DodgerBlue;
-            this.guna2HtmlLabel26.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2HtmlLabel26.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel26.Location = new System.Drawing.Point(28, 1124);
-            this.guna2HtmlLabel26.Name = "guna2HtmlLabel26";
-            this.guna2HtmlLabel26.Size = new System.Drawing.Size(15, 15);
-            this.guna2HtmlLabel26.TabIndex = 97;
-            this.guna2HtmlLabel26.Text = "!";
-            this.guna2HtmlLabel26.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2ProgressIndicator1
             // 
@@ -807,14 +818,6 @@ namespace NotePaper
             // 
             this.timer1.Interval = 2000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // guna2Separator1
-            // 
-            this.guna2Separator1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(70)))), ((int)(((byte)(140)))));
-            this.guna2Separator1.Location = new System.Drawing.Point(14, 46);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(34, 10);
-            this.guna2Separator1.TabIndex = 91;
             // 
             // Settings
             // 

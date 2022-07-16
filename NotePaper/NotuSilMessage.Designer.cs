@@ -140,6 +140,7 @@ namespace NotePaper
             this.Name = "NotuSilMessage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Notu Sil";
+            this.Load += new System.EventHandler(this.NotuSilMessage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

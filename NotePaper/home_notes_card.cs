@@ -218,6 +218,7 @@ namespace NotePaper
 
         private void deleteNote_Click(object sender, EventArgs e)
         {
+            Languages ln = new Languages();
             NotuSilMessage sil = new NotuSilMessage();
             sil.mediaTableId = mediaTableId;
             sil.mediaId = mediaId;
@@ -225,6 +226,8 @@ namespace NotePaper
             sil.btn = btn;
             sil.guna2HtmlLabel1.Text = deleteNoteHeaderText;
             sil.guna2HtmlLabel2.Text = deleteNoteMessageText;
+            sil.deleteButtonText = ln.Delete[languageIndex];
+            sil.cancelButtonText = ln.Cancel[languageIndex];
             sil.ShowDialog();
             
         }

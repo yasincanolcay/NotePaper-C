@@ -17,6 +17,9 @@ namespace NotePaper
         SqlConnection sqlConnection = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = 'C:\\csharp projelerim\\NotePaper\\NotePaper\\Database1.mdf'; Integrated Security = True; Connect Timeout = 30");
         bool started = false;
         public Guna.UI2.WinForms.Guna2CircleButton btn = new Guna.UI2.WinForms.Guna2CircleButton();
+        public Guna.UI2.WinForms.Guna2CircleButton btnSettings = new Guna.UI2.WinForms.Guna2CircleButton();
+        List<int> id = new List<int>();
+        List<int> mediaTableId = new List<int>();
         public Settings()
         {
             InitializeComponent();
@@ -306,6 +309,85 @@ namespace NotePaper
         private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/yasincanolcay");
+        }
+
+        private void guna2TileButton1_Click(object sender, EventArgs e)
+        {
+            sqlConnection.Open();
+            SqlCommand command = new SqlCommand();
+            command.Connection = sqlConnection;
+            command.CommandText = ("Select * From [Notes]");
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                if (reader != null)
+                {
+                    id.Add(Convert.ToInt32(reader["Id"]));
+                    if (reader["mediaId"] != null && reader["mediaId"].ToString() != "")
+                    {
+                        mediaTableId.Add(Convert.ToInt32(reader["mediaId"]));
+                    }
+                }
+            }
+            sqlConnection.Close();
+            if (id.Count != 0)
+            {
+                DeleteAllNotesWarning deleteWarning = new DeleteAllNotesWarning();
+                deleteWarning.id = id;
+                deleteWarning.mediaTableId = mediaTableId;
+                deleteWarning.btn = btnSettings;
+                deleteWarning.Show();
+            }
+        }
+
+        private void guna2TileButton2_Click(object sender, EventArgs e)
+        {
+            sqlConnection.Open();
+            SqlCommand command = new SqlCommand();
+            command.Connection = sqlConnection;
+            command.CommandText = ("Select * From [Notes]");
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                if (reader != null)
+                {
+                    if (Convert.ToInt32(reader["favorites"]) == 1)
+                    {
+                        id.Add(Convert.ToInt32(reader["Id"]));
+                        if (reader["mediaId"] != null && reader["mediaId"].ToString() != "")
+                        {
+                            mediaTableId.Add(Convert.ToInt32(reader["mediaId"]));
+                        }
+                    }
+                }
+            }
+            sqlConnection.Close();
+            if (id.Count != 0)
+            {
+                DeleteAllNotesWarning deleteWarning = new DeleteAllNotesWarning();
+                deleteWarning.id = id;
+                deleteWarning.mediaTableId = mediaTableId;
+                deleteWarning.btn = btnSettings;
+                deleteWarning.Show();
+            }
+        }
+
+        private void guna2TileButton3_Click(object sender, EventArgs e)
+        {
+            sqlConnection.Open();
+            SqlCommand command = new SqlCommand();
+            command.Connection = sqlConnection;
+            command.CommandText = "UPDATE Settings SET started = @started,startedNightmode=@ng,autoNightmode=@autonight,autoSave=@aSave,weather=@w,weatherCity=@wc,language=@lan";
+            command.Parameters.AddWithValue("@started", 0);
+            command.Parameters.AddWithValue("@ng", 0);
+            command.Parameters.AddWithValue("@autonight", 0);
+            command.Parameters.AddWithValue("@aSave", 0);
+            command.Parameters.AddWithValue("@w", 0);
+            command.Parameters.AddWithValue("@wc", 0);
+            command.Parameters.AddWithValue("@lan", 0);
+            command.ExecuteNonQuery();
+            sqlConnection.Close();
+            btnSettings.PerformClick();
         }
     }
 }

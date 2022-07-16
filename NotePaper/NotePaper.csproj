@@ -83,6 +83,12 @@
     <Compile Include="Categories.Designer.cs">
       <DependentUpon>Categories.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeleteAllNotesWarning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteAllNotesWarning.Designer.cs">
+      <DependentUpon>DeleteAllNotesWarning.cs</DependentUpon>
+    </Compile>
     <Compile Include="fontSize.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Categories.resx">
       <DependentUpon>Categories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteAllNotesWarning.resx">
+      <DependentUpon>DeleteAllNotesWarning.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fontSize.resx">
       <DependentUpon>fontSize.cs</DependentUpon>

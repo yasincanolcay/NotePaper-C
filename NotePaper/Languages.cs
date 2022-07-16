@@ -896,5 +896,31 @@ namespace NotePaper
             "شاشة كاملة",
             "Pantalla completa",
         };
+        public string[] Delete = {
+            "Delete",
+            "Удалить",
+            "삭제",
+            "刪除",
+            "Sil",
+            "Sil",
+            "Löschen",
+            "Effacer",
+            "Elimina",
+            "حذف",
+            "Borrar"
+        };
+        public string[] Cancel = {
+            "Cancel",
+            "Отмена",
+            "취소",
+            "取消",
+            "İptal",
+            "Ləğv et",
+            "Absagen",
+            "Annuler",
+            "Annulla",
+            "يلغي",
+            "Cancelar"
+        };
     }
 }

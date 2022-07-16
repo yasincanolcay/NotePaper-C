@@ -375,6 +375,7 @@ namespace NotePaper
             settings.TopLevel = false;
             settings.Dock = DockStyle.Fill;
             settings.btn = guna2CircleButton4;
+            settings.btnSettings = guna2CircleButton3;
             flowLayoutPanel1.Controls.Add(settings);
             settings.Show();
             navPanel.Width = guna2CircleButton3.Width;
