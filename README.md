@@ -125,4 +125,5 @@ Lütfen bu projenin `davranış kurallarına` uyun.
 
 # Screenshots
 <img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot%20(193).png"/>
+<img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot%20(194).png"/>
   
