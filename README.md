@@ -62,14 +62,13 @@ español
 - auto save
 - live preview
 - remove media
+- categories languages added 7/17/2022
 # What's missing right now
 - backup
 - to share
 - sign in
 - login
 - record voice
-- categories language
-
 
 ## Lisans
 
