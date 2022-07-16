@@ -20,7 +20,7 @@ namespace NotePaper
      */
     public partial class Form1 : Form
     {
-        SqlConnection sqlConnection = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = 'C:\\csharp projelerim\\NotePaper\\NotePaper\\Database1.mdf'; Integrated Security = True; Connect Timeout = 30");
+        SqlConnection sqlConnection = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = '|DataDirectory|\\Database1.mdf'; Integrated Security = True; Connect Timeout = 30");
         public int totalNotes = 0;
         int openMenuwidth = 0;
         int timerWeatherDateControl = 0;
@@ -89,7 +89,21 @@ namespace NotePaper
                     newNoteColor = Color.FromArgb(20, 20, 20);
                     newNoteTextboxColor = Color.FromArgb(30, 30, 30);
                 }
+                CategoriesLanguage c = new CategoriesLanguage();
+                List<string[]> categoriesLanguageList = new List<string[]>();
+                categoriesLanguageList.Add(c.english);
+                categoriesLanguageList.Add(c.russian);
+                categoriesLanguageList.Add(c.korea);
+                categoriesLanguageList.Add(c.chineese);
+                categoriesLanguageList.Add(c.turkish);
+                categoriesLanguageList.Add(c.Azerbaycan);
+                categoriesLanguageList.Add(c.German);
+                categoriesLanguageList.Add(c.french);
+                categoriesLanguageList.Add(c.italy);
+                categoriesLanguageList.Add(c.arabic);
+                categoriesLanguageList.Add(c.espanol);
                 addNotes addNewNotes = new addNotes();
+                addNewNotes.guna2ComboBox1.Items.AddRange(categoriesLanguageList[languageIndex]);
                 addNewNotes.Text = guna2Button1.Text;
                 addNewNotes.BackColor = newNoteColor;
                 addNewNotes.guna2TextBox1.FillColor = newNoteTextboxColor;
@@ -140,7 +154,7 @@ namespace NotePaper
                     notesCard.noteShortLabel.Text = reader["note"].ToString();
                     notesCard.datetimeLabel.Text = reader["date"].ToString();
                     notesCard.id = Convert.ToInt32(reader["Id"]);
-                    notesCard.categorie = reader["categorie"].ToString();
+                    notesCard.categorie = Convert.ToInt32(reader["categorie"]);
                     notesCard.bold = reader["bold"].ToString();
                     notesCard.underline = reader["underline"].ToString();
                     notesCard.date = Convert.ToDateTime(reader["date"]);
@@ -288,7 +302,7 @@ namespace NotePaper
                         notesCard.noteShortLabel.Text = reader["note"].ToString();
                         notesCard.datetimeLabel.Text = reader["date"].ToString();
                         notesCard.id = Convert.ToInt32(reader["Id"]);
-                        notesCard.categorie = reader["categorie"].ToString();
+                        notesCard.categorie = Convert.ToInt32(reader["categorie"]);
                         notesCard.bold = reader["bold"].ToString();
                         notesCard.underline = reader["underline"].ToString();
                         notesCard.mediaId = reader["mediaId"].ToString();
@@ -388,12 +402,30 @@ namespace NotePaper
         }
         private void NewNote()
         {
+            CategoriesLanguage c = new CategoriesLanguage();
+            List<string[]> categoriesLanguageList = new List<string[]>();
+            categoriesLanguageList.Add(c.english);
+            categoriesLanguageList.Add(c.russian);
+            categoriesLanguageList.Add(c.korea);
+            categoriesLanguageList.Add(c.chineese);
+            categoriesLanguageList.Add(c.turkish);
+            categoriesLanguageList.Add(c.Azerbaycan);
+            categoriesLanguageList.Add(c.German);
+            categoriesLanguageList.Add(c.french);
+            categoriesLanguageList.Add(c.italy);
+            categoriesLanguageList.Add(c.arabic);
+            categoriesLanguageList.Add(c.espanol);
+
             if (guna2ToggleSwitch1.Checked)
             {
                 newNoteColor = Color.FromArgb(20, 20, 20);
                 newNoteTextboxColor = Color.FromArgb(30, 30, 30);
             }
             addNotes addNewNotes = new addNotes();
+
+        
+            addNewNotes.guna2ComboBox1.Items.AddRange(categoriesLanguageList[languageIndex]);
+
             addNewNotes.Text = guna2Button1.Text;
             addNewNotes.BackColor = newNoteColor;
             addNewNotes.guna2TextBox1.FillColor = newNoteTextboxColor;

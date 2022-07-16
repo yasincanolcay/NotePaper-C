@@ -218,43 +218,6 @@ namespace NotePaper
             this.categoriesComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.categoriesComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.categoriesComboBox.ItemHeight = 30;
-            this.categoriesComboBox.Items.AddRange(new object[] {
-            "Filtre yok",
-            "Hatırlatma",
-            "Okul",
-            "İş",
-            "Ev ihtiyaçları",
-            "İhtiyaçlar",
-            "İstekler",
-            "Kişisel gereksinim",
-            "Spor",
-            "Seyahat",
-            "Tatil planı",
-            "Randevular",
-            "Sağlık",
-            "Yemek",
-            "Blog",
-            "Özel",
-            "Hediye",
-            "Doğum günü",
-            "Bayramlar",
-            "Alınacaklar",
-            "Ödemeler",
-            "Şiir",
-            "Yazılar",
-            "Teknoloji",
-            "Hayaller",
-            "Hedefler",
-            "Motivasyon",
-            "Müzik",
-            "Doğa",
-            "Yapay zeka",
-            "Sosyal",
-            "Aşk",
-            "Romantizm",
-            "Para",
-            "Arkadaş",
-            "Diğer"});
             this.categoriesComboBox.Location = new System.Drawing.Point(5, 95);
             this.categoriesComboBox.MaximumSize = new System.Drawing.Size(200, 0);
             this.categoriesComboBox.Name = "categoriesComboBox";

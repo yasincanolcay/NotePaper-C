@@ -171,42 +171,6 @@ namespace NotePaper
             this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Items.AddRange(new object[] {
-            "Hatırlatma",
-            "Okul",
-            "İş",
-            "Ev ihtiyaçları",
-            "İhtiyaçlar",
-            "İstekler",
-            "Kişisel gereksinim",
-            "Spor",
-            "Seyahat",
-            "Tatil planı",
-            "Randevular",
-            "Sağlık",
-            "Yemek",
-            "Blog",
-            "Özel",
-            "Hediye",
-            "Doğum günü",
-            "Bayramlar",
-            "Alınacaklar",
-            "Ödemeler",
-            "Şiir",
-            "Yazılar",
-            "Teknoloji",
-            "Hayaller",
-            "Hedefler",
-            "Motivasyon",
-            "Müzik",
-            "Doğa",
-            "Yapay zeka",
-            "Sosyal",
-            "Aşk",
-            "Romantizm",
-            "Para",
-            "Arkadaş",
-            "Diğer"});
             this.guna2ComboBox1.Location = new System.Drawing.Point(307, 12);
             this.guna2ComboBox1.MaximumSize = new System.Drawing.Size(200, 0);
             this.guna2ComboBox1.Name = "guna2ComboBox1";

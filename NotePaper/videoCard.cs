@@ -13,7 +13,7 @@ namespace NotePaper
 {
     public partial class videoCard : Form
     {
-        SqlConnection sqlConnection = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = 'C:\\csharp projelerim\\NotePaper\\NotePaper\\Database1.mdf'; Integrated Security = True; Connect Timeout = 30");
+        SqlConnection sqlConnection = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = '|DataDirectory|\\Database1.mdf'; Integrated Security = True; Connect Timeout = 30");
         public String videoUrl = "";
         public FlowLayoutPanel flowPanel = new FlowLayoutPanel();
         public List<string> videosList = new List<string>();
@@ -28,7 +28,7 @@ namespace NotePaper
         public string mediaId = "";
         public string header = "";
         public string notes = "";
-        public string categorie = "";
+        public int categorie = 0;
         public int favorites = 0;
         public string color = "";
         public string thumb = "";

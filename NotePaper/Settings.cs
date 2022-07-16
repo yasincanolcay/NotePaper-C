@@ -14,7 +14,8 @@ namespace NotePaper
 {
     public partial class Settings : Form
     {
-        SqlConnection sqlConnection = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = 'C:\\csharp projelerim\\NotePaper\\NotePaper\\Database1.mdf'; Integrated Security = True; Connect Timeout = 30");
+        SqlConnection sqlConnection = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = '|DataDirectory|\\Database1.mdf'; Integrated Security = True; Connect Timeout = 30");
+
         bool started = false;
         public Guna.UI2.WinForms.Guna2CircleButton btn = new Guna.UI2.WinForms.Guna2CircleButton();
         public Guna.UI2.WinForms.Guna2CircleButton btnSettings = new Guna.UI2.WinForms.Guna2CircleButton();

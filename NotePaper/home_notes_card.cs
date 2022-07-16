@@ -13,7 +13,8 @@ namespace NotePaper
 {
     public partial class home_notes_card : Form
     {
-        SqlConnection sqlConnection = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = 'C:\\csharp projelerim\\NotePaper\\NotePaper\\Database1.mdf'; Integrated Security = True; Connect Timeout = 30");
+        SqlConnection sqlConnection = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = '|DataDirectory|\\Database1.mdf'; Integrated Security = True; Connect Timeout = 30");
+
         public string mediaId = "";
         public string addNoteTextHeader = "";
         public string addNoteText = "";
@@ -26,7 +27,7 @@ namespace NotePaper
         public int languageIndex = 0;
         public bool favorites = false;
         public bool nightMode = false;
-        public string categorie = "";
+        public int categorie = 0;
         public string bold = "";
         public string underline = "";
         public string thumb = "";
@@ -36,44 +37,6 @@ namespace NotePaper
         public DateTime date = DateTime.Now;
         public Guna.UI2.WinForms.Guna2CircleButton btn = new Guna.UI2.WinForms.Guna2CircleButton();
         public List<int> mediaTableId = new List<int>();
-        List<string> categoriesList = new List<string>();
-        string[] categoriesArray = {
-                  "Hatırlatma",
-            "Okul",
-            "İş",
-            "Ev ihtiyaçları",
-            "İhtiyaçlar",
-            "İstekler",
-            "Kişisel gereksinim",
-            "Spor",
-            "Seyahat",
-            "Tatil planı",
-            "Randevular",
-            "Sağlık",
-            "Yemek",
-            "Blog",
-            "Özel",
-            "Hediye",
-            "Doğum günü",
-            "Bayramlar",
-            "Alınacaklar",
-            "Ödemeler",
-            "Şiir",
-            "Yazılar",
-            "Teknoloji",
-            "Hayaller",
-            "Hedefler",
-            "Motivasyon",
-            "Müzik",
-            "Doğa",
-            "Yapay zeka",
-            "Sosyal",
-            "Aşk",
-            "Romantizm",
-            "Para",
-            "Arkadaş",
-            "Diğer"
-            };
 
         public home_notes_card()
         {
@@ -135,8 +98,6 @@ namespace NotePaper
 
         private void home_notes_card_Load(object sender, EventArgs e)
         {
-            categoriesList.AddRange(categoriesArray);
-
             if (mediaId != "")
             {
                 sqlConnection.Open();
@@ -234,14 +195,35 @@ namespace NotePaper
 
         private void showNote_Click(object sender, EventArgs e)
         {
+
+
+            CategoriesLanguage c = new CategoriesLanguage();
+            List<string[]> categoriesLanguageList = new List<string[]>();
+            categoriesLanguageList.Add(c.english);
+            categoriesLanguageList.Add(c.russian);
+            categoriesLanguageList.Add(c.korea);
+            categoriesLanguageList.Add(c.chineese);
+            categoriesLanguageList.Add(c.turkish);
+            categoriesLanguageList.Add(c.Azerbaycan);
+            categoriesLanguageList.Add(c.German);
+            categoriesLanguageList.Add(c.french);
+            categoriesLanguageList.Add(c.italy);
+            categoriesLanguageList.Add(c.arabic);
+            categoriesLanguageList.Add(c.espanol);
+
             addNotes note = new addNotes();
+
+            for (int i = 0; i < categoriesLanguageList[languageIndex].Length; i++)
+            {
+                note.guna2ComboBox1.Items.Add(categoriesLanguageList[languageIndex][i]);
+            }
             note.Text = "Read Note";
             note.mode = "read";
             note.guna2TextBox1.Text = titleLabel.Text;
             note.guna2TextBox2.Text = noteShortLabel.Text;
             note.guna2TextBox1.ReadOnly = true;
             note.guna2TextBox2.ReadOnly = true;
-            note.guna2ComboBox1.SelectedIndex = categoriesList.IndexOf(categorie);
+            note.guna2ComboBox1.SelectedIndex = categorie;
             note.id = id;
             note.mediaId = mediaId;
             note.color = color;
@@ -362,7 +344,7 @@ namespace NotePaper
             note.guna2TextBox2.Text = noteShortLabel.Text;
             note.guna2TextBox1.ReadOnly = true;
             note.guna2TextBox2.ReadOnly = true;
-            note.guna2ComboBox1.SelectedIndex = categoriesList.IndexOf(categorie);
+            note.guna2ComboBox1.SelectedIndex = categorie;
             note.id = id;
             note.mediaId = mediaId;
             note.color = color;

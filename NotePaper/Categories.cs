@@ -13,7 +13,8 @@ namespace NotePaper
 {
     public partial class Categories : Form
     {
-        SqlConnection sqlConnection = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = 'C:\\csharp projelerim\\NotePaper\\NotePaper\\Database1.mdf'; Integrated Security = True; Connect Timeout = 30");
+        SqlConnection sqlConnection = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = '|DataDirectory|\\Database1.mdf'; Integrated Security = True; Connect Timeout = 30");
+
         int totalNotes = 0;
         public int languageIndex = 0;
         public Guna.UI2.WinForms.Guna2CircleButton btn = new Guna.UI2.WinForms.Guna2CircleButton();
@@ -65,7 +66,7 @@ namespace NotePaper
                         notesCard.noteShortLabel.Text = reader["note"].ToString();
                         notesCard.datetimeLabel.Text = reader["date"].ToString();
                         notesCard.id = Convert.ToInt32(reader["Id"]);
-                        notesCard.categorie = reader["categorie"].ToString();
+                        notesCard.categorie = Convert.ToInt32(reader["categorie"]);
                         notesCard.bold = reader["bold"].ToString();
                         notesCard.underline = reader["underline"].ToString();
                         notesCard.mediaId = reader["mediaId"].ToString();
@@ -121,7 +122,7 @@ namespace NotePaper
                             notesCard.noteShortLabel.Text = reader["note"].ToString();
                             notesCard.datetimeLabel.Text = reader["date"].ToString();
                             notesCard.id = Convert.ToInt32(reader["Id"]);
-                            notesCard.categorie = reader["categorie"].ToString();
+                            notesCard.categorie = Convert.ToInt32(reader["categorie"]);
                             notesCard.bold = reader["bold"].ToString();
                             notesCard.underline = reader["underline"].ToString();
                             notesCard.mediaId = reader["mediaId"].ToString();
@@ -178,7 +179,7 @@ namespace NotePaper
                             notesCard.noteShortLabel.Text = reader["note"].ToString();
                             notesCard.datetimeLabel.Text = reader["date"].ToString();
                             notesCard.id = Convert.ToInt32(reader["Id"]);
-                            notesCard.categorie = reader["categorie"].ToString();
+                            notesCard.categorie = Convert.ToInt32(reader["categorie"]);
                             notesCard.bold = reader["bold"].ToString();
                             notesCard.underline = reader["underline"].ToString();
                             notesCard.mediaId = reader["mediaId"].ToString(); 
@@ -235,7 +236,7 @@ namespace NotePaper
                             notesCard.noteShortLabel.Text = reader["note"].ToString();
                             notesCard.datetimeLabel.Text = reader["date"].ToString();
                             notesCard.id = Convert.ToInt32(reader["Id"]);
-                            notesCard.categorie = reader["categorie"].ToString();
+                            notesCard.categorie = Convert.ToInt32(reader["categorie"]);
                             notesCard.bold = reader["bold"].ToString();
                             notesCard.underline = reader["underline"].ToString();
                             notesCard.mediaId = reader["mediaId"].ToString();
@@ -292,7 +293,7 @@ namespace NotePaper
                             notesCard.noteShortLabel.Text = reader["note"].ToString();
                             notesCard.datetimeLabel.Text = reader["date"].ToString();
                             notesCard.id = Convert.ToInt32(reader["Id"]);
-                            notesCard.categorie = reader["categorie"].ToString();
+                            notesCard.categorie = Convert.ToInt32(reader["categorie"]);
                             notesCard.bold = reader["bold"].ToString();
                             notesCard.underline = reader["underline"].ToString();
                             notesCard.mediaId = reader["mediaId"].ToString();
@@ -349,7 +350,7 @@ namespace NotePaper
                             notesCard.noteShortLabel.Text = reader["note"].ToString();
                             notesCard.datetimeLabel.Text = reader["date"].ToString();
                             notesCard.id = Convert.ToInt32(reader["Id"]);
-                            notesCard.categorie = reader["categorie"].ToString();
+                            notesCard.categorie = Convert.ToInt32(reader["categorie"]);
                             notesCard.bold = reader["bold"].ToString();
                             notesCard.underline = reader["underline"].ToString();
                             notesCard.mediaId = reader["mediaId"].ToString();
@@ -406,7 +407,7 @@ namespace NotePaper
                             notesCard.noteShortLabel.Text = reader["note"].ToString();
                             notesCard.datetimeLabel.Text = reader["date"].ToString();
                             notesCard.id = Convert.ToInt32(reader["Id"]);
-                            notesCard.categorie = reader["categorie"].ToString();
+                            notesCard.categorie = Convert.ToInt32(reader["categorie"]);
                             notesCard.bold = reader["bold"].ToString();
                             notesCard.underline = reader["underline"].ToString();
                             notesCard.mediaId = reader["mediaId"].ToString();
@@ -519,7 +520,7 @@ namespace NotePaper
                 {
                     if (reader["header"].ToString().ToLower() == searchTextBox.Text.ToLower() && !thumb && !media && categoriesComboBox.SelectedItem.ToString() != "" && categoriesComboBox.SelectedItem.ToString() != "Filtre yok")
                     {
-                        if (reader["categorie"].ToString() == categoriesComboBox.SelectedItem.ToString())
+                        if (Convert.ToInt32(reader["categorie"]) == categoriesComboBox.SelectedIndex)
                         {
                             totalNotes++;
                             totalResponse.Text = totalNotes.ToString();
@@ -530,7 +531,7 @@ namespace NotePaper
                             notesCard.noteShortLabel.Text = reader["note"].ToString();
                             notesCard.datetimeLabel.Text = reader["date"].ToString();
                             notesCard.id = Convert.ToInt32(reader["Id"]);
-                            notesCard.categorie = reader["categorie"].ToString();
+                            notesCard.categorie = Convert.ToInt32(reader["categorie"]);
                             notesCard.bold = reader["bold"].ToString();
                             notesCard.underline = reader["underline"].ToString();
                             notesCard.mediaId = reader["mediaId"].ToString();
@@ -576,7 +577,7 @@ namespace NotePaper
                     }
                     else if (reader["header"].ToString().ToLower() == searchTextBox.Text.ToLower() && thumb && !media && categoriesComboBox.SelectedItem.ToString() != "" && categoriesComboBox.SelectedItem.ToString() != "Filtre yok")
                     {
-                        if (reader["categorie"].ToString() == categoriesComboBox.SelectedItem.ToString() && reader["thumb"] != null && reader["thumb"].ToString() != "")
+                        if (Convert.ToInt32(reader["categorie"]) == categoriesComboBox.SelectedIndex && reader["thumb"] != null && reader["thumb"].ToString() != "")
                         {
                             totalNotes++;
                             totalResponse.Text = totalNotes.ToString();
@@ -587,7 +588,7 @@ namespace NotePaper
                             notesCard.noteShortLabel.Text = reader["note"].ToString();
                             notesCard.datetimeLabel.Text = reader["date"].ToString();
                             notesCard.id = Convert.ToInt32(reader["Id"]);
-                            notesCard.categorie = reader["categorie"].ToString();
+                            notesCard.categorie = Convert.ToInt32(reader["categorie"]);
                             notesCard.bold = reader["bold"].ToString();
                             notesCard.underline = reader["underline"].ToString();
                             notesCard.mediaId = reader["mediaId"].ToString();
@@ -633,7 +634,7 @@ namespace NotePaper
                     }
                     else if (searchTextBox.Text=="" && thumb && !media && categoriesComboBox.SelectedItem.ToString() != "" && categoriesComboBox.SelectedItem.ToString() != "Filtre yok")
                     {
-                        if (reader["categorie"].ToString() == categoriesComboBox.SelectedItem.ToString() && reader["thumb"] != null && reader["thumb"].ToString() != "")
+                        if (Convert.ToInt32(reader["categorie"]) == categoriesComboBox.SelectedIndex && reader["thumb"] != null && reader["thumb"].ToString() != "")
                         {
                             totalNotes++;
                             totalResponse.Text = totalNotes.ToString();
@@ -644,7 +645,7 @@ namespace NotePaper
                             notesCard.noteShortLabel.Text = reader["note"].ToString();
                             notesCard.datetimeLabel.Text = reader["date"].ToString();
                             notesCard.id = Convert.ToInt32(reader["Id"]);
-                            notesCard.categorie = reader["categorie"].ToString();
+                            notesCard.categorie = Convert.ToInt32(reader["categorie"]);
                             notesCard.bold = reader["bold"].ToString();
                             notesCard.underline = reader["underline"].ToString();
                             notesCard.mediaId = reader["mediaId"].ToString();
@@ -690,7 +691,7 @@ namespace NotePaper
                     }
                     else if (searchTextBox.Text == "" && !thumb && !media && categoriesComboBox.SelectedItem.ToString() != "" && categoriesComboBox.SelectedItem.ToString() != "Filtre yok")
                     {
-                        if (reader["categorie"].ToString() == categoriesComboBox.SelectedItem.ToString())
+                        if (Convert.ToInt32(reader["categorie"]) == categoriesComboBox.SelectedIndex)
                         {
                             totalNotes++;
                             totalResponse.Text = totalNotes.ToString();
@@ -701,7 +702,7 @@ namespace NotePaper
                             notesCard.noteShortLabel.Text = reader["note"].ToString();
                             notesCard.datetimeLabel.Text = reader["date"].ToString();
                             notesCard.id = Convert.ToInt32(reader["Id"]);
-                            notesCard.categorie = reader["categorie"].ToString();
+                            notesCard.categorie = Convert.ToInt32(reader["categorie"]);
                             notesCard.bold = reader["bold"].ToString();
                             notesCard.underline = reader["underline"].ToString();
                             notesCard.mediaId = reader["mediaId"].ToString();
@@ -759,6 +760,20 @@ namespace NotePaper
             thumbailButton.Text = thumbailButtonText;
             mediaButton.Text = mediaButtonText;
             clearFilterButton.Text = cleanButtonText;
+            CategoriesLanguage c = new CategoriesLanguage();
+            List<string[]> categoriesLanguageList = new List<string[]>();
+            categoriesLanguageList.Add(c.english);
+            categoriesLanguageList.Add(c.russian);
+            categoriesLanguageList.Add(c.korea);
+            categoriesLanguageList.Add(c.chineese);
+            categoriesLanguageList.Add(c.turkish);
+            categoriesLanguageList.Add(c.Azerbaycan);
+            categoriesLanguageList.Add(c.German);
+            categoriesLanguageList.Add(c.french);
+            categoriesLanguageList.Add(c.italy);
+            categoriesLanguageList.Add(c.arabic);
+            categoriesLanguageList.Add(c.espanol);
+            categoriesComboBox.Items.AddRange(categoriesLanguageList[languageIndex]);
         }
     }
 }

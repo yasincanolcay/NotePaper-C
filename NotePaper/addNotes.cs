@@ -13,7 +13,8 @@ namespace NotePaper
 {
     public partial class addNotes : Form
     {
-        SqlConnection sqlConnection = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = 'C:\\csharp projelerim\\NotePaper\\NotePaper\\Database1.mdf'; Integrated Security = True; Connect Timeout = 30");
+        SqlConnection sqlConnection = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = '|DataDirectory|\\Database1.mdf'; Integrated Security = True; Connect Timeout = 30");
+
         public bool bold = false;
         public bool underline = false;
         public bool nightMode = false;
@@ -129,7 +130,7 @@ namespace NotePaper
                 sqlConnection.Open();
                 if (videoUrl.Count == 0)
                 {
-                    SqlCommand command = new SqlCommand("insert into Notes(note,categorie,date,header,favorites,color,mediaId,thumb) values ('" + guna2TextBox2.Text + "','" + guna2ComboBox1.Text + "','" + DateTime.Now + "','" + guna2TextBox1.Text + "','" + favorites + "','" + color + "','" + null + "','" + thumb + "')", sqlConnection);
+                    SqlCommand command = new SqlCommand("insert into Notes(note,categorie,date,header,favorites,color,mediaId,thumb) values ('" + guna2TextBox2.Text + "','" + guna2ComboBox1.SelectedIndex + "','" + DateTime.Now + "','" + guna2TextBox1.Text + "','" + favorites + "','" + color + "','" + null + "','" + thumb + "')", sqlConnection);
                     command.ExecuteNonQuery();
 
 
@@ -152,7 +153,7 @@ namespace NotePaper
 
                 if (videoUrl.Count != 0)
                 {
-                    SqlCommand Withmedia = new SqlCommand("insert into Notes(note,categorie,date,header,favorites,color,mediaId,thumb) values ('" + guna2TextBox2.Text + "','" + guna2ComboBox1.Text + "','" + DateTime.Now + "','" + guna2TextBox1.Text + "','" + favorites + "','" + color + "','" + randomId + "','" + thumb + "')", sqlConnection);
+                    SqlCommand Withmedia = new SqlCommand("insert into Notes(note,categorie,date,header,favorites,color,mediaId,thumb) values ('" + guna2TextBox2.Text + "','" + guna2ComboBox1.SelectedIndex + "','" + DateTime.Now + "','" + guna2TextBox1.Text + "','" + favorites + "','" + color + "','" + randomId + "','" + thumb + "')", sqlConnection);
                     Withmedia.ExecuteNonQuery();
 
                     SqlCommand command2 = new SqlCommand();
@@ -187,7 +188,7 @@ namespace NotePaper
 
                 if (videoUrl.Count == 0)
                 {
-                    SqlCommand command = new SqlCommand("insert into Notes(note,categorie,date,header,favorites,color,mediaId,thumb) values ('" + guna2TextBox2.Text + "','" + guna2ComboBox1.Text + "','" + DateTime.Now + "','" + guna2TextBox1.Text + "','" + favorites + "','" + color + "','" + null + "','" + thumb + "')", sqlConnection);
+                    SqlCommand command = new SqlCommand("insert into Notes(note,categorie,date,header,favorites,color,mediaId,thumb) values ('" + guna2TextBox2.Text + "','" + guna2ComboBox1.SelectedIndex + "','" + DateTime.Now + "','" + guna2TextBox1.Text + "','" + favorites + "','" + color + "','" + null + "','" + thumb + "')", sqlConnection);
                     command.ExecuteNonQuery();
 
 
@@ -222,7 +223,7 @@ namespace NotePaper
                         deleteMedia.ExecuteNonQuery();
                     }
 
-                    SqlCommand Withmedia = new SqlCommand("insert into Notes(note,categorie,date,header,favorites,color,mediaId,thumb) values ('" + guna2TextBox2.Text + "','" + guna2ComboBox1.Text + "','" + DateTime.Now + "','" + guna2TextBox1.Text + "','" + favorites + "','" + color + "','" + mediaId + "','" + thumb + "')", sqlConnection);
+                    SqlCommand Withmedia = new SqlCommand("insert into Notes(note,categorie,date,header,favorites,color,mediaId,thumb) values ('" + guna2TextBox2.Text + "','" + guna2ComboBox1.SelectedIndex + "','" + DateTime.Now + "','" + guna2TextBox1.Text + "','" + favorites + "','" + color + "','" + mediaId + "','" + thumb + "')", sqlConnection);
                     Withmedia.ExecuteNonQuery();
 
                     SqlCommand idReadercommand = new SqlCommand();
@@ -313,12 +314,13 @@ namespace NotePaper
                             videos.mediaTableId = Convert.ToInt32(reader["Id"]);
                             videos.header = guna2TextBox1.Text;
                             videos.notes = guna2TextBox2.Text;
-                            videos.categorie = guna2ComboBox1.Text;
+                            videos.categorie = guna2ComboBox1.SelectedIndex;
                             videos.favorites = favorites;
                             videos.thumb = thumb;
                             videos.color = color;
                             videos.id = id;
                             videos.mediaId = mediaId;
+                            videos.languageIndex = languageIndex;
                             flowLayoutPanel1.Controls.Add(videos);
                             videos.Show();
                             readIndex++;
@@ -488,7 +490,7 @@ namespace NotePaper
                     videos.type = "video";
                     videos.header = guna2TextBox1.Text;
                     videos.notes = guna2TextBox2.Text;
-                    videos.categorie = guna2ComboBox1.Text;
+                    videos.categorie = guna2ComboBox1.SelectedIndex;
                     videos.docType = type;
                     videos.favorites = favorites;
                     videos.thumb = thumb;
@@ -533,7 +535,7 @@ namespace NotePaper
                     videos.docType = type;
                     videos.header = guna2TextBox1.Text;
                     videos.notes = guna2TextBox2.Text;
-                    videos.categorie = guna2ComboBox1.Text;
+                    videos.categorie = guna2ComboBox1.SelectedIndex;
                     videos.favorites = favorites;
                     videos.thumb = thumb;
                     videos.color = color;
@@ -577,7 +579,7 @@ namespace NotePaper
                     videos.docType = type;
                     videos.header = guna2TextBox1.Text;
                     videos.notes = guna2TextBox2.Text;
-                    videos.categorie = guna2ComboBox1.Text;
+                    videos.categorie = guna2ComboBox1.SelectedIndex;
                     videos.favorites = favorites;
                     videos.thumb = thumb;
                     videos.color = color;
@@ -622,7 +624,7 @@ namespace NotePaper
                     videos.docType = type;
                     videos.header = guna2TextBox1.Text;
                     videos.notes = guna2TextBox2.Text;
-                    videos.categorie = guna2ComboBox1.Text;
+                    videos.categorie = guna2ComboBox1.SelectedIndex;
                     videos.favorites = favorites;
                     videos.thumb = thumb;
                     videos.color = color;
@@ -649,7 +651,7 @@ namespace NotePaper
                 deleteNote.Connection = sqlConnection;
                 deleteNote.CommandText = "delete Notes where Id='" + id + "'";
                 deleteNote.ExecuteNonQuery();
-                SqlCommand command = new SqlCommand("insert into Notes(note,categorie,date,header,favorites,color,mediaId,thumb) values ('" + guna2TextBox2.Text + "','" + guna2ComboBox1.Text + "','" + DateTime.Now + "','" + guna2TextBox1.Text + "','" + favorites + "','" + color + "','" + null + "','" + thumb + "')", sqlConnection);
+                SqlCommand command = new SqlCommand("insert into Notes(note,categorie,date,header,favorites,color,mediaId,thumb) values ('" + guna2TextBox2.Text + "','" + guna2ComboBox1.SelectedIndex + "','" + DateTime.Now + "','" + guna2TextBox1.Text + "','" + favorites + "','" + color + "','" + null + "','" + thumb + "')", sqlConnection);
                 command.ExecuteNonQuery();
                 SqlCommand idReadercommand = new SqlCommand();
                 idReadercommand.Connection = sqlConnection;
