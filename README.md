@@ -123,4 +123,23 @@ Lütfen bu projenin `davranış kurallarına` uyun.
 [@instagram](https://www.instagram.com/devonesoft/)
 [@youtube](https://www.youtube.com/channel/UCJ8uEcZIP_sSKhZJ2NTjflg)
 
+# Screenshots
+<img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot%20(193).png"/>
+<img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot%20(194).png"/>
+<img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot%20(196).png"/>
+<img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot%20(197).png"/>
+<img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot%20(198).png"/>
+<img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot%20(199).png"/>
+<img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot%20(200).png"/>
+<img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot%20(201).png"/>
+<img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot%20(202).png"/>
+<img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot%20(203).png"/>
+<img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot%20(205).png"/>
+<img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot%20(206).png"/>
+<img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot%20(208).png"/>
+<img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot%20(209).png"/>
+<img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot%20(210).png"/>
+<img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot%20(211).png"/>
+<img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot%20(212).png"/>
+<img src="https://raw.githubusercontent.com/yasincanolcay/NotePaper-C/master/NotePaper/bin/Debug/screenshots/Screenshot.png"/>
   
