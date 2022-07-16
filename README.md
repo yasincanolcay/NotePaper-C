@@ -123,4 +123,7 @@ Lütfen bu projenin `davranış kurallarına` uyun.
 [@instagram](https://www.instagram.com/devonesoft/)
 [@youtube](https://www.youtube.com/channel/UCJ8uEcZIP_sSKhZJ2NTjflg)
 
+# Screenshots
+<img src="https://github.com/yasincanolcay/NotePaper-C/blob/master/NotePaper/bin/Debug/screenshots/Screenshot%20(193).png?raw=true
+" width=500 height=400/>
   
