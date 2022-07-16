@@ -124,6 +124,6 @@ Lütfen bu projenin `davranış kurallarına` uyun.
 [@youtube](https://www.youtube.com/channel/UCJ8uEcZIP_sSKhZJ2NTjflg)
 
 # Screenshots
-<img src="https://github.com/yasincanolcay/NotePaper-C/blob/master/NotePaper/bin/Debug/screenshots/Screenshot%20(193).png
+<img src="https://github.com/yasincanolcay/NotePaper-C/NotePaper/bin/Debug/screenshots/Screenshot%20(193).png
 " width=500 height=400/>
   
