@@ -207,132 +207,141 @@ namespace NotePaper
         //User Settings Data  // Ayarlar verisi
         private void GetSettingsData()
         {
-            Languages ln = new Languages();
-            sqlConnection.Open();
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-            command.CommandText = ("Select * From [Settings]");
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                if (reader != null)
+                sqlConnection.Open();
+                Languages ln = new Languages();
+                SqlCommand command = new SqlCommand();
+                command.Connection = sqlConnection;
+                command.CommandText = ("Select * From [Settings]");
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
                 {
-                    if (Convert.ToInt32(reader["startedNightmode"]) == 1)
+                    if (reader != null)
                     {
-                        guna2ToggleSwitch1.Checked = true;
-                        guna2CircleButton4.PerformClick();
+                        if (Convert.ToInt32(reader["startedNightmode"]) == 1)
+                        {
+                            guna2ToggleSwitch1.Checked = true;
+                            guna2CircleButton4.PerformClick();
+                        }
+                        if (Convert.ToInt32(reader["autoNightmode"]) == 1)
+                        {
+                            autoNightMode = true;
+                        }
+                        if (Convert.ToInt32(reader["weather"]) == 1)
+                        {
+                            weather = true;
+                            weatherCity = ln.weatherCityList[Convert.ToInt32(reader["weatherCity"])];
+                            GetWeather();
+                        }
+                        guna2Button1.Text = ln.addNotesLanguage[Convert.ToInt32(reader["language"])];
+                        guna2Button4.Text = ln.addNotesLanguage[Convert.ToInt32(reader["language"])];
+                        openFileDialog1.Title = ln.getTxtFiles[Convert.ToInt32(reader["language"])];
+                        addNoteHeaderText = ln.addNoteHeaderTextLanguage[Convert.ToInt32(reader["language"])];
+                        addNoteText = ln.addNoteTextLanguage[Convert.ToInt32(reader["language"])];
+                        deleteNoteHeaderText = ln.deleteNoteWarningHeader[Convert.ToInt32(reader["language"])];
+                        deleteNoteMessageText = ln.deleteNoteMessage[Convert.ToInt32(reader["language"])];
+                        searchText = ln.Search[Convert.ToInt32(reader["language"])];
+                        searchBoxText = ln.SearchTitle[Convert.ToInt32(reader["language"])];
+                        categoriesText = ln.categories[Convert.ToInt32(reader["language"])];
+                        thumbailButtonText = ln.Thumbnail[Convert.ToInt32(reader["language"])];
+                        mediaButtonText = ln.Media[Convert.ToInt32(reader["language"])];
+                        cleanButtonText = ln.Clean[Convert.ToInt32(reader["language"])];
+                        backgroundcolor = ln.BackgroundColor[Convert.ToInt32(reader["language"])];
+                        open = ln.Open[Convert.ToInt32(reader["language"])];
+                        thumb = ln.Thumbnail[Convert.ToInt32(reader["language"])];
+                        guna2Button5.Text = ln.Back[Convert.ToInt32(reader["language"])];
+                        back = ln.Back[Convert.ToInt32(reader["language"])];
+                        clone = ln.Clone[Convert.ToInt32(reader["language"])];
+                        DeleteThumbnail = ln.DeleteThumbnail[Convert.ToInt32(reader["language"])];
+                        DefaultColor = ln.DefaultColor[Convert.ToInt32(reader["language"])];
+                        languageIndex = Convert.ToInt32(reader["language"]);
                     }
-                    if (Convert.ToInt32(reader["autoNightmode"]) == 1)
-                    {
-                        autoNightMode = true;
-                    }
-                    if (Convert.ToInt32(reader["weather"]) == 1)
-                    {
-                        weather = true;
-                        weatherCity = ln.weatherCityList[Convert.ToInt32(reader["weatherCity"])];
-                        GetWeather();
-                    }
-                    guna2Button1.Text = ln.addNotesLanguage[Convert.ToInt32(reader["language"])];
-                    guna2Button4.Text = ln.addNotesLanguage[Convert.ToInt32(reader["language"])];
-                    openFileDialog1.Title = ln.getTxtFiles[Convert.ToInt32(reader["language"])];
-                    addNoteHeaderText = ln.addNoteHeaderTextLanguage[Convert.ToInt32(reader["language"])];
-                    addNoteText = ln.addNoteTextLanguage[Convert.ToInt32(reader["language"])];
-                    deleteNoteHeaderText = ln.deleteNoteWarningHeader[Convert.ToInt32(reader["language"])];
-                    deleteNoteMessageText = ln.deleteNoteMessage[Convert.ToInt32(reader["language"])];
-                    searchText = ln.Search[Convert.ToInt32(reader["language"])];
-                    searchBoxText = ln.SearchTitle[Convert.ToInt32(reader["language"])];
-                    categoriesText = ln.categories[Convert.ToInt32(reader["language"])];
-                    thumbailButtonText = ln.Thumbnail[Convert.ToInt32(reader["language"])];
-                    mediaButtonText = ln.Media[Convert.ToInt32(reader["language"])];
-                    cleanButtonText = ln.Clean[Convert.ToInt32(reader["language"])];
-                    backgroundcolor = ln.BackgroundColor[Convert.ToInt32(reader["language"])];
-                    open = ln.Open[Convert.ToInt32(reader["language"])];
-                    thumb = ln.Thumbnail[Convert.ToInt32(reader["language"])];
-                    guna2Button5.Text = ln.Back[Convert.ToInt32(reader["language"])];
-                    back = ln.Back[Convert.ToInt32(reader["language"])];
-                    clone = ln.Clone[Convert.ToInt32(reader["language"])];
-                    DeleteThumbnail = ln.DeleteThumbnail[Convert.ToInt32(reader["language"])];
-                    DefaultColor = ln.DefaultColor[Convert.ToInt32(reader["language"])];
-                    languageIndex = Convert.ToInt32(reader["language"]);
                 }
+                sqlConnection.Close();
+                spawnNote();
             }
-            sqlConnection.Close();
-            spawnNote();
+            catch
+            {}
         }
         //Get Favorites Notes  // Favori notları getir
         private void spawnFavoritesNotes()
         {
-            categoriesPage = false;
-            settingsPage = false;
-            flowLayoutPanel1.Controls.Clear();
-            flowLayoutPanel1.AutoScroll = true;
-            totalNotes = 0;
-            flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight;
-            navPanel.Width = guna2CircleButton1.Width;
-            navPanel.Left = guna2CircleButton1.Left;
-            sqlConnection.Open();
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-            command.CommandText = ("Select * From [Notes]");
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                if (reader != null)
+                categoriesPage = false;
+                settingsPage = false;
+                flowLayoutPanel1.Controls.Clear();
+                flowLayoutPanel1.AutoScroll = true;
+                totalNotes = 0;
+                flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight;
+                navPanel.Width = guna2CircleButton1.Width;
+                navPanel.Left = guna2CircleButton1.Left;
+                sqlConnection.Open();
+                SqlCommand command = new SqlCommand();
+                command.Connection = sqlConnection;
+                command.CommandText = ("Select * From [Notes]");
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
                 {
-                    if (Convert.ToInt32(reader["favorites"]) == 1)
+                    if (reader != null)
                     {
-                        totalNotes++;
-                        totalNote.Text = totalNotes.ToString();
-                        home_notes_card notesCard = new home_notes_card();
-                        if (reader["thumb"] != null && reader["thumb"].ToString() != "")
+                        if (Convert.ToInt32(reader["favorites"]) == 1)
                         {
-                            notesCard.pictureBox1.Visible = true;
-                            notesCard.pictureBox1.Image = Image.FromFile(@"" + reader["thumb"].ToString());
+                            totalNotes++;
+                            totalNote.Text = totalNotes.ToString();
+                            home_notes_card notesCard = new home_notes_card();
+                            if (reader["thumb"] != null && reader["thumb"].ToString() != "")
+                            {
+                                notesCard.pictureBox1.Visible = true;
+                                notesCard.pictureBox1.Image = Image.FromFile(@"" + reader["thumb"].ToString());
+                            }
+                            if (reader["color"] != null && reader["color"].ToString() != "")
+                            {
+                                notesCard.colorA = Convert.ToInt32(reader["color"].ToString().Split(',')[0]);
+                                notesCard.colorR = Convert.ToInt32(reader["color"].ToString().Split(',')[1]);
+                                notesCard.colorB = Convert.ToInt32(reader["color"].ToString().Split(',')[2]);
+                                notesCard.guna2Panel1.BackColor = Color.FromArgb(Convert.ToInt32(reader["color"].ToString().Split(',')[0]), Convert.ToInt32(reader["color"].ToString().Split(',')[1]), Convert.ToInt32(reader["color"].ToString().Split(',')[2]));
+                            }
+                            notesCard.btn = guna2CircleButton1;
+                            notesCard.TopLevel = false;
+                            notesCard.titleLabel.Text = reader["header"].ToString();
+                            notesCard.noteShortLabel.Text = reader["note"].ToString();
+                            notesCard.datetimeLabel.Text = reader["date"].ToString();
+                            notesCard.id = Convert.ToInt32(reader["Id"]);
+                            notesCard.categorie = Convert.ToInt32(reader["categorie"]);
+                            notesCard.bold = reader["bold"].ToString();
+                            notesCard.underline = reader["underline"].ToString();
+                            notesCard.mediaId = reader["mediaId"].ToString();
+                            mediaId = reader["mediaId"].ToString();
+                            notesCard.date = Convert.ToDateTime(reader["date"]);
+                            notesCard.addFavorites.Image = Image.FromFile("icons/heart_red.png");
+                            notesCard.favorites = true;
+                            notesCard.addNoteTextHeader = addNoteHeaderText;
+                            notesCard.addNoteText = addNoteText;
+                            notesCard.deleteNoteHeaderText = deleteNoteHeaderText;
+                            notesCard.deleteNoteMessageText = deleteNoteMessageText;
+                            notesCard.arkaplanRengiToolStripMenuItem.Text = backgroundcolor;
+                            notesCard.açToolStripMenuItem.Text = open;
+                            notesCard.küçükResimToolStripMenuItem.Text = thumb;
+                            notesCard.guna2Button1.Text = clone;
+                            notesCard.guna2Button2.Text = DeleteThumbnail;
+                            notesCard.guna2Button3.Text = DefaultColor;
+                            notesCard.guna2Button4.Text = back;
+                            notesCard.languageIndex = languageIndex;
+                            if (guna2ToggleSwitch1.Checked)
+                            {
+                                notesCard.nightMode = true;
+                            }
+                            flowLayoutPanel1.Controls.Add(notesCard);
+                            notesCard.Show();
                         }
-                        if (reader["color"] != null && reader["color"].ToString() != "")
-                        {
-                            notesCard.colorA = Convert.ToInt32(reader["color"].ToString().Split(',')[0]);
-                            notesCard.colorR = Convert.ToInt32(reader["color"].ToString().Split(',')[1]);
-                            notesCard.colorB = Convert.ToInt32(reader["color"].ToString().Split(',')[2]);
-                            notesCard.guna2Panel1.BackColor = Color.FromArgb(Convert.ToInt32(reader["color"].ToString().Split(',')[0]), Convert.ToInt32(reader["color"].ToString().Split(',')[1]), Convert.ToInt32(reader["color"].ToString().Split(',')[2]));
-                        }
-                        notesCard.btn = guna2CircleButton1;
-                        notesCard.TopLevel = false;
-                        notesCard.titleLabel.Text = reader["header"].ToString();
-                        notesCard.noteShortLabel.Text = reader["note"].ToString();
-                        notesCard.datetimeLabel.Text = reader["date"].ToString();
-                        notesCard.id = Convert.ToInt32(reader["Id"]);
-                        notesCard.categorie = Convert.ToInt32(reader["categorie"]);
-                        notesCard.bold = reader["bold"].ToString();
-                        notesCard.underline = reader["underline"].ToString();
-                        notesCard.mediaId = reader["mediaId"].ToString();
-                        mediaId = reader["mediaId"].ToString();
-                        notesCard.date = Convert.ToDateTime(reader["date"]);
-                        notesCard.addFavorites.Image = Image.FromFile("icons/heart_red.png");
-                        notesCard.favorites = true;
-                        notesCard.addNoteTextHeader = addNoteHeaderText;
-                        notesCard.addNoteText = addNoteText;
-                        notesCard.deleteNoteHeaderText = deleteNoteHeaderText;
-                        notesCard.deleteNoteMessageText = deleteNoteMessageText;
-                        notesCard.arkaplanRengiToolStripMenuItem.Text = backgroundcolor;
-                        notesCard.açToolStripMenuItem.Text = open;
-                        notesCard.küçükResimToolStripMenuItem.Text = thumb;
-                        notesCard.guna2Button1.Text = clone;
-                        notesCard.guna2Button2.Text = DeleteThumbnail;
-                        notesCard.guna2Button3.Text = DefaultColor;
-                        notesCard.guna2Button4.Text = back;
-                        notesCard.languageIndex = languageIndex;
-                        if (guna2ToggleSwitch1.Checked)
-                        {
-                            notesCard.nightMode = true;
-                        }
-                        flowLayoutPanel1.Controls.Add(notesCard);
-                        notesCard.Show();
                     }
                 }
+                sqlConnection.Close();
             }
-            sqlConnection.Close();
-
+            catch
+            {}
         }
         private void JumpFilterPage()
         {

@@ -32,36 +32,33 @@ namespace NotePaper
             {
                 if (started)
                 {
+                    sqlConnection.Open();
                     if (guna2ToggleSwitch1.Checked)        // program oto başlatma işaretlenirse
                     {
 
                         //işaretlendi ise Regedit e açılışta çalıştır olarak ekle
                         RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
                         key.SetValue("NotePaper", "\"" + Application.ExecutablePath + "\"");
-                        sqlConnection.Open();
                         SqlCommand command = new SqlCommand();
                         command.Connection = sqlConnection;
                         command.CommandText = "UPDATE Settings SET started = @start";
                         command.Parameters.AddWithValue("@start", 1);
                         command.ExecuteNonQuery();
-                        sqlConnection.Close();
 
                     }
                     else              //program oto çalıştırma iptal edilirse
                     {
-
                         //işaret kaldırıldı ise Regeditten açılışta çalıştırılacaklardan kaldır
                         RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
                         key.DeleteValue("NotePaper");
-                        sqlConnection.Open();
                         SqlCommand command = new SqlCommand();
                         command.Connection = sqlConnection;
                         command.CommandText = "UPDATE Settings SET started = @start";
                         command.Parameters.AddWithValue("@start", 0);
                         command.ExecuteNonQuery();
-                        sqlConnection.Close();
-
                     }
+                    sqlConnection.Close();
+
                 }
             }
             catch 
@@ -154,38 +151,42 @@ namespace NotePaper
 
         private void guna2ToggleSwitch2_CheckedChanged(object sender, EventArgs e)
         {
-            if (started)
+            try
             {
-                if (guna2ToggleSwitch2.Checked)
+                if (started)
                 {
                     sqlConnection.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlConnection;
-                    command.CommandText = "UPDATE Settings SET startedNightmode = @night";
-                    command.Parameters.AddWithValue("@night", 1);
-                    command.ExecuteNonQuery();
-                    sqlConnection.Close();
-                }
-                else
-                {
-                    sqlConnection.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlConnection;
-                    command.CommandText = "UPDATE Settings SET startedNightmode = @night";
-                    command.Parameters.AddWithValue("@night", 0);
-                    command.ExecuteNonQuery();
-                    sqlConnection.Close();
+                    if (guna2ToggleSwitch2.Checked)
+                    {
+                        SqlCommand command = new SqlCommand();
+                        command.Connection = sqlConnection;
+                        command.CommandText = "UPDATE Settings SET startedNightmode = @night";
+                        command.Parameters.AddWithValue("@night", 1);
+                        command.ExecuteNonQuery();
+                        sqlConnection.Close();
+                    }
+                    else
+                    {
+                        SqlCommand command = new SqlCommand();
+                        command.Connection = sqlConnection;
+                        command.CommandText = "UPDATE Settings SET startedNightmode = @night";
+                        command.Parameters.AddWithValue("@night", 0);
+                        command.ExecuteNonQuery();
+                        sqlConnection.Close();
+                    }
                 }
             }
+            catch 
+            {}
         }
 
         private void guna2ToggleSwitch4_CheckedChanged(object sender, EventArgs e)
         {
             if (started)
             {
+                sqlConnection.Open();
                 if (guna2ToggleSwitch4.Checked)
                 {
-                    sqlConnection.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlConnection;
                     command.CommandText = "UPDATE Settings SET autoSave = @save";
@@ -195,14 +196,13 @@ namespace NotePaper
                 }
                 else
                 {
-                    sqlConnection.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlConnection;
                     command.CommandText = "UPDATE Settings SET autoSave = @save";
                     command.Parameters.AddWithValue("@save", 0);
                     command.ExecuteNonQuery();
-                    sqlConnection.Close();
                 }
+                sqlConnection.Close();
             }
         }
 
@@ -210,15 +210,14 @@ namespace NotePaper
         {
             if (started)
             {
+                sqlConnection.Open();
                 if (guna2ToggleSwitch5.Checked)
                 {
-                    sqlConnection.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlConnection;
                     command.CommandText = "UPDATE Settings SET weather = @wt";
                     command.Parameters.AddWithValue("@wt", 1);
                     command.ExecuteNonQuery();
-                    sqlConnection.Close();
                 }
                 else
                 {
@@ -228,8 +227,8 @@ namespace NotePaper
                     command.CommandText = "UPDATE Settings SET weather = @wt";
                     command.Parameters.AddWithValue("@wt", 0);
                     command.ExecuteNonQuery();
-                    sqlConnection.Close();
                 }
+                sqlConnection.Close();
             }
         }
 
@@ -265,26 +264,24 @@ namespace NotePaper
         {
             if (started)
             {
+                sqlConnection.Open();
                 if (guna2ToggleSwitch3.Checked)
                 {
-                    sqlConnection.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlConnection;
                     command.CommandText = "UPDATE Settings SET autoNightmode = @night";
                     command.Parameters.AddWithValue("@night", 1);
                     command.ExecuteNonQuery();
-                    sqlConnection.Close();
                 }
                 else
                 {
-                    sqlConnection.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlConnection;
                     command.CommandText = "UPDATE Settings SET autoNightmode = @night";
                     command.Parameters.AddWithValue("@night", 0);
                     command.ExecuteNonQuery();
-                    sqlConnection.Close();
                 }
+                sqlConnection.Close();
             }
         }
 

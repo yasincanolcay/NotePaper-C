@@ -195,8 +195,6 @@ namespace NotePaper
 
         private void showNote_Click(object sender, EventArgs e)
         {
-
-
             CategoriesLanguage c = new CategoriesLanguage();
             List<string[]> categoriesLanguageList = new List<string[]>();
             categoriesLanguageList.Add(c.english);
@@ -338,7 +336,27 @@ namespace NotePaper
 
         private void açToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CategoriesLanguage c = new CategoriesLanguage();
+            List<string[]> categoriesLanguageList = new List<string[]>();
+            categoriesLanguageList.Add(c.english);
+            categoriesLanguageList.Add(c.russian);
+            categoriesLanguageList.Add(c.korea);
+            categoriesLanguageList.Add(c.chineese);
+            categoriesLanguageList.Add(c.turkish);
+            categoriesLanguageList.Add(c.Azerbaycan);
+            categoriesLanguageList.Add(c.German);
+            categoriesLanguageList.Add(c.french);
+            categoriesLanguageList.Add(c.italy);
+            categoriesLanguageList.Add(c.arabic);
+            categoriesLanguageList.Add(c.espanol);
+
             addNotes note = new addNotes();
+
+            for (int i = 0; i < categoriesLanguageList[languageIndex].Length; i++)
+            {
+                note.guna2ComboBox1.Items.Add(categoriesLanguageList[languageIndex][i]);
+            }
+            note.Text = "Read Note";
             note.mode = "read";
             note.guna2TextBox1.Text = titleLabel.Text;
             note.guna2TextBox2.Text = noteShortLabel.Text;
@@ -351,6 +369,9 @@ namespace NotePaper
             note.date = date;
             note.btn = btn;
             note.thumb = thumb;
+            note.guna2TextBox1.PlaceholderText = addNoteTextHeader;
+            note.guna2TextBox2.PlaceholderText = addNoteText;
+            note.languageIndex = languageIndex;
             if (favorites == true)
                 note.favorites = 1;
             if (bold == "true")
